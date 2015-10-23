@@ -1,32 +1,24 @@
 define([
     'underscore'
 ],function(_){
-    var person1 = {
+    var person = {
         name: 'nose',
-        age: 22
+        talk: function(){
+            return 'I am talking'
+        }
     };
-    var person2 = {
-        name: 'nose1',
-        age: 23
-    };
-    _.defaults(person1, person2);
-    console.log(person1);   //{name: 'nose', age: 22};
+    //指定的属性对应的值，是字符串，返回对应的值
+    var result = _.result(person, 'name1');
+    console.log(result);        //nose
 
-
-    person1 = {
-        name: undefined,
-        age: 23
-    };
-    
-    _.defaults(person1, person2);
-    console.log(person1);          //{name: "nose1", age: 23}
-
+    //指定的属性对应的值是函数，执行函数，返回函数值
+    var result1 = _.result(person, 'talk');
+    console.log(result1);       //I am talking
 
 });
 
-//总结： 
-//_.defualts方法
-//填充第一个对象中值为undefined的属性，用后面的对象
+//_.result(object, property, [defaultValue]) , 没有找到执行默认值
+
 
 
 
