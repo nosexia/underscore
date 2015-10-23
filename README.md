@@ -1,2 +1,2 @@
-backbone<br/>
-1.backbone观察者模式
+underscore<br/>
+1.underscore常用操作数据方法
