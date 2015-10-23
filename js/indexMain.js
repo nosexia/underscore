@@ -3,21 +3,31 @@ define([
 ],function(_){
     var person = {
         name: 'nose',
-        talk: function(){
-            return 'I am talking'
-        }
+        age: 23,
+        talk: function(){ console.log('i am talking') },
+        see: function(){ console.log('i am seeing')}
     };
-    //指定的属性对应的值，是字符串，返回对应的值
-    var result = _.result(person, 'name1');
-    console.log(result);        //nose
 
-    //指定的属性对应的值是函数，执行函数，返回函数值
-    var result1 = _.result(person, 'talk');
-    console.log(result1);       //I am talking
+    var result = _.pick(person, 'name', 'talk');
+    //console.log(result);   //{name: 'nose', talk: function(){ console.log('i am talking')}
+
+
+    //第二个参数是函数的情况
+
+    person = {
+        name: 'nose',
+        age: 23
+    };
+
+    var result = _.pick(person, function(val, attr){
+        return _.isNumber(val);
+    });
+    console.log(result);            //Object {age: 23}
 
 });
 
-//_.result(object, property, [defaultValue]) , 没有找到执行默认值
+
+
 
 
 
