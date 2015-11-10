@@ -1,10 +1,15 @@
 define([
     'underscore'
 ],function(_){
-    var viewOptions = ['model', 'el'];
-    var options = {model: 'model1', collection: 'collection1'};
-    var result = _.pick(options, viewOptions);
-    console.log(result);            //model: 'model1'
+    //_.keys，检索对象所有属性值
+    var routes = {
+        '*other/:id': 'specialOpen',
+        '*other': 'defaultOpen'
+    };
+
+    var result = _.keys(routes);
+    console.log(result);       //["*other/:id", "*other"]
+
 });
 
 
