@@ -1,15 +1,15 @@
 define([
     'underscore'
 ],function(_){
-    //_.keys，检索对象所有属性值
-    var routes = {
-        '*other/:id': 'specialOpen',
-        '*other': 'defaultOpen'
+
+    var func = function(greeting){ 
+        return greeting + ': ' + this.name 
     };
-
-    var result = _.keys(routes);
-    console.log(result);       //["*other/:id", "*other"]
-
+    func = _.bind(func, {name: 'moe'}, 'hi');
+    console.log(func());        //hi: moe
+    //_.bind(func, {name: 'moe'}, 'h1')
+    // 方法{name: 'moe'}作为func的作用域
+    // 'hi' 为func的第一个arguments
 });
 
 
