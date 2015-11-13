@@ -4,13 +4,29 @@ define([
 
     //_.any, _.some方法，检测数组中，是否有一项不为false值
     
-    var array1 = [null, undefined, false, 0];
-    var result = _.some(array1)  //false
-    console.log(result)
-    array1.unshift(1);
-    result = _.some(array1)    //true;
-    console.log(result)
-    //_.any, _.some方法，数组中有一项通过断言(数组中有一项为true)，返回true, 
+    var array1 = [
+        {
+            route: /\d+/,
+            fn1: function(){
+                console.log('is number');
+            }
+
+        },
+        {
+            route: /\D+/,
+            fn2: function(){
+                console.log('is not number');
+            }
+        }
+    ];
+
+    _.any(array1, function(obj, nIndex){
+        console.log(obj);
+        console.log(nIndex);
+    });
+
+    //_.any, _.some类似于$.each方法,返回true，循环结束
+    
 });
 
 
