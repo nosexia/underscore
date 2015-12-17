@@ -1,32 +1,11 @@
 define([
     'underscore'
 ],function(_){
-
-    //_.any, _.some方法，检测数组中，是否有一项不为false值
-    
-    var array1 = [
-        {
-            route: /\d+/,
-            fn1: function(){
-                console.log('is number');
-            }
-
-        },
-        {
-            route: /\D+/,
-            fn2: function(){
-                console.log('is not number');
-            }
-        }
-    ];
-
-    _.any(array1, function(obj, nIndex){
-        console.log(obj);
-        console.log(nIndex);
-    });
-
-    //_.any, _.some类似于$.each方法,返回true，循环结束
-    
+    //_.difference，在数组array中排除(array和array2的公共项)
+    var array = [1 ,2,5];
+    var array2 = [2, 3, 4];
+    var result = _.difference(array, array2);
+    console.log(result);            //[1, 5]
 });
 
 
